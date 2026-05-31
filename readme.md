@@ -1,5 +1,7 @@
 # Differential Equations for Cyclical Systems
 
+[View the Paper](paper.pdf)
+
 Implementation, reproduction, and analysis of Tahara et al.'s modified Lotka–Volterra predator–prey model with equilibrium tuning and population stabilization.
 
 ## Overview

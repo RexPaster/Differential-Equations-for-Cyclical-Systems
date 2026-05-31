@@ -1,79 +1,80 @@
-# Differential Equations for Cyclical Systems — An Exploration of T. Tahara et al.'s Modified LV Model
+# Differential Equations for Cyclical Systems
 
-Implementation and analysis of a modified Lotka–Volterra predator-prey model featuring immigration and migration effects.
+Implementation, reproduction, and analysis of Tahara et al.'s modified Lotka–Volterra predator–prey model with equilibrium tuning and population stabilization.
 
 ## Overview
 
-This project reproduces and extends the work of Tahara et al. on modified Lotka–Volterra systems designed to stabilize predator-prey populations through immigration and migration mechanisms.
+This project reproduces and extends the modified Lotka–Volterra model introduced by Tahara et al. for stabilizing predator–prey dynamics through immigration-based population control.
 
-The study investigates:
+Beyond reproducing the original results, this work develops a numerical equilibrium tuning framework capable of identifying immigration and reproduction parameters that drive the system toward user-defined predator and prey population targets.
 
-- Classical predator-prey dynamics
-- Population stabilization
-- Immigration and migration models
+Key areas of investigation include:
+
+- Classical Lotka–Volterra dynamics
+- Immigration-driven stabilization
+- Population-dependent migration models
 - Numerical equilibrium tuning
-- Ecological system management applications
+- Long-term system stability
+- Ecological management applications
 
 ## Model
 
-The modified predator-prey system is
+The modified predator–prey system is defined by:
 
-$$
-\frac{dx}{dt}
-=
-rx-axy+C(x)
-$$
+```text
+dx/dt = rx - axy + C(x)
 
-$$
-\frac{dy}{dt}
-=
-bxy-my+D(y)
-$$
+dy/dt = bxy - my + D(y)
+```
 
 where:
 
-- $x$ = prey population
-- $y$ = predator population
-- $r$ = prey growth rate
-- $a$ = predation rate
-- $b$ = predator reproduction rate
-- $m$ = predator mortality rate
-- $C(x)$ = prey immigration term
-- $D(y)$ = predator immigration term
+| Parameter | Description |
+|------------|------------|
+| x | Prey population |
+| y | Predator population |
+| r | Prey growth rate |
+| a | Predation coefficient |
+| b | Predator reproduction coefficient |
+| m | Predator mortality rate |
+| C(x) | Prey immigration function |
+| D(y) | Predator immigration function |
 
 ## Migration Models
 
-The study evaluates several migration strategies:
+Several immigration strategies were investigated.
 
 ### Constant Immigration
 
-$$
-C(x)=c
-$$
+```text
+C(x) = c
 
-$$
-D(y)=d
-$$
+D(y) = d
+```
+
+A fixed number of individuals enters the population each cycle.
 
 ### Population-Dependent Immigration
 
-$$
-C(x)=\frac{c}{x}
-$$
+```text
+C(x) = c/x
 
-$$
-D(y)=\frac{d}{y}
-$$
+D(y) = d/y
+```
 
-## Equilibrium Tuning
+Immigration scales according to population size and system state.
 
-A numerical optimization framework was developed to:
+## Equilibrium Tuning Framework
 
-- Specify target predator populations
-- Specify target prey populations
-- Determine required immigration rates
-- Compute reproduction parameters
-- Achieve stable long-term population behavior
+A numerical optimization routine was developed to determine model parameters that produce desired equilibrium populations.
+
+The framework:
+
+- Accepts target predator and prey populations
+- Simulates system dynamics using ODE solvers
+- Minimizes equilibrium error using numerical optimization
+- Computes immigration and reproduction parameters
+- Generates stable population trajectories
 
 The implementation utilizes:
 
@@ -83,31 +84,30 @@ The implementation utilizes:
 
 ## Results
 
-Major findings include:
+Key findings include:
 
-- Successful reproduction of Tahara et al.'s published results.
-- Constant immigration can stabilize otherwise cyclic systems.
-- Migration terms significantly alter long-term dynamics.
-- Optimization techniques can tune systems toward desired equilibria.
-- Practical implementation requires accurate ecological measurements.
-
+- Successful reproduction of the results presented by Tahara et al.
+- Immigration terms can stabilize otherwise oscillatory predator–prey systems.
+- Different migration models produce substantially different long-term behaviors.
+- Numerical optimization can reliably tune systems toward specified equilibrium populations.
+- Practical implementation depends heavily on accurate ecological measurements and parameter estimation.
 
 ## Technologies
 
 - MATLAB
-- Dynamical Systems
-- Optimization
+- Dynamical Systems Modeling
+- Numerical Optimization
 - ODE Solvers
-- Ecological Modeling
+- Population Dynamics
 
 ## Applications
 
 Potential applications include:
 
-- Wildlife management
-- Conservation planning
-- Population control
-- Ecosystem restoration
+- Wildlife population management
+- Ecosystem conservation
+- Resource planning
+- Invasive species control
 - Ecological forecasting
 
 ## Authors
@@ -118,9 +118,9 @@ Washington University in St. Louis
 **Ilan Kliman**  
 Washington University in St. Louis
 
-## References
+## Reference
 
-Tahara et al., *Asymptotic Stability of a Modified Lotka–Volterra Model with Small Immigrations*, Scientific Reports, 2018.
+Tahara, T. et al. *Asymptotic Stability of a Modified Lotka–Volterra Model with Small Immigrations*. Scientific Reports, 2018.
 
 ## License
 

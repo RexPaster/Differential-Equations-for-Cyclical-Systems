@@ -1,6 +1,6 @@
 # Differential Equations for Cyclical Systems
 
-[View the Paper](paper.pdf)
+[View the Paper](https://github.com/RexPaster/Differential-Equations-for-Cyclical-Systems/blob/35ddae3b90f584d3f9cdf998fe8cfefc27843342/Differential%20Equations%20for%20Cyclical%20Systems%20(LV%20Models).pdf)
 
 Implementation, reproduction, and analysis of Tahara et al.'s modified Lotka–Volterra predator–prey model with equilibrium tuning and population stabilization.
 
